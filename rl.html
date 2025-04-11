@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive A3 Poster: RL in Product Development</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 2em;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+    }
+    .a3-border {
+      position: relative;
+      border: 4px solid #2c3e50;
+      width: 1123px;
+      height: 1587px;
+      padding: 2em;
+      box-sizing: border-box;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+    h1 {
+      text-align: center;
+      color: #34495e;
+      margin-bottom: 1.5em;
+      font-size: 2.8em;
+    }
+    .poster-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1.6em;
+      width: 100%;
+      height: 100%;
+    }
+    .card {
+      perspective: 1000px;
+      width: 100%;
+      height: 100%;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+      transform-style: preserve-3d;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 1.5em;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .card-front {
+      z-index: 2;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+      background-color: #ecf0f1;
+    }
+    .card-front h2, .card-back h2 {
+      color: #1abc9c;
+      font-size: 1.4em;
+      text-align: center;
+      margin-bottom: 0.6em;
+    }
+    .card-front p, .card-front ul,
+    .card-back p, .card-back ul {
+      font-size: 1em;
+      line-height: 1.6em;
+    }
+    .icon {
+      font-size: 1.3em;
+      margin-right: 0.4em;
+    }
+    body.dark {
+      background-color: #1e1e1e;
+      color: #ecf0f1;
+    }
+    body.dark .a3-border {
+      background-color: #2c3e50;
+    }
+    body.dark .card-front, body.dark .card-back {
+      background-color: #34495e;
+      color: #ecf0f1;
+    }
+    .group-id {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 1.2em;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="a3-border">
+    <h1>Our Vision for Applying Reinforcement Learning</h1>
+    <div class="poster-layout">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h2><span class="icon">🛠</span>Design</h2>
+            <p>RL helps automate CAD tasks by recommending optimal parts based on design goals, cost, and material constraints.</p>
+          </div>
+          <div class="card-back">
+            <p>Example: An RL agent in SolidWorks suggests different bearing models tailored to torque, speed, and cost.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h2><span class="icon">🤖</span>Manufacturing</h2>
+            <p>RL supports robotic control and production line optimization using real-time sensor feedback and scheduling strategies.</p>
+          </div>
+          <div class="card-back">
+            <p>Example: Digital twin integration enables RL to minimize downtime by adapting task sequencing live on the factory floor.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h2><span class="icon">🔧</span>Product Use</h2>
+            <p>RL monitors usage patterns to predict maintenance and optimize energy use in connected products and services.</p>
+          </div>
+          <div class="card-back">
+            <p>Example: Smart thermostats adjust temperature schedules automatically to reduce energy costs and improve comfort.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h2><span class="icon">♻️</span>Recycling</h2>
+            <p>RL improves waste sorting and recycling route efficiency with computer vision and real-time decision-making.</p>
+          </div>
+          <div class="card-back">
+            <p>Example: Vision-based robotic sorters learn how to separate items by material type and contamination level.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h2>📚 Lessons Learned</h2>
+            <ul>
+              <li>High-quality state representation is essential.</li>
+              <li>Domain-specific knowledge boosts performance.</li>
+              <li>Tool choice depends on data and environment.</li>
+              <li>Interpretable policies and simulations aid success.</li>
+            </ul>
+          </div>
+          <div class="card-back">
+            <p>Tip: Prototype with simulation, then apply to real systems with caution and tracking features.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h2>🛠 Tools & APIs</h2>
+            <ul>
+              <li><strong>Design:</strong> PyTorch, CAx APIs, TF-Agents</li>
+              <li><strong>Manufacturing:</strong> ROS, Digital Twin, PyBullet</li>
+              <li><strong>Product Use:</strong> Gym, predictive simulators</li>
+              <li><strong>Recycling:</strong> OpenCV, DenseNet, Q-learning</li>
+            </ul>
+          </div>
+          <div class="card-back">
+            <p>Explore RLlib, Stable-Baselines3, or custom TensorFlow models to enhance project workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="group-id">Gr.17</div>
+  </div>
+</body>
+</html>
