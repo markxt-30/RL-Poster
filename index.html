@@ -9,7 +9,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f5f7fa;
       margin: 0;
-      padding: 2em;
+      padding: 1em;
       box-sizing: border-box;
       display: flex;
       justify-content: center;
@@ -17,8 +17,9 @@
     .a3-border {
       position: relative;
       border: 4px solid #2c3e50;
-      width: 1123px;
-      height: 1587px;
+      max-width: 1123px;
+      width: 100%;
+      height: auto;
       padding: 2em;
       box-sizing: border-box;
       background-color: white;
@@ -31,20 +32,23 @@
       text-align: center;
       color: #34495e;
       margin-bottom: 1.5em;
-      font-size: 2.8em;
+      font-size: 2.2em;
     }
     .poster-layout {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 1.6em;
+      grid-template-columns: 1fr;
+      gap: 1.5em;
       width: 100%;
-      height: 100%;
+    }
+    @media (min-width: 768px) {
+      .poster-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     .card {
       perspective: 1000px;
       width: 100%;
-      height: 100%;
+      height: auto;
     }
     .card-inner {
       position: relative;
@@ -69,7 +73,6 @@
       flex-direction: column;
       justify-content: flex-start;
       box-sizing: border-box;
-      overflow: hidden;
     }
     .card-front {
       z-index: 2;
@@ -80,17 +83,17 @@
     }
     .card-front h2, .card-back h2 {
       color: #1abc9c;
-      font-size: 1.4em;
+      font-size: 1.2em;
       text-align: center;
       margin-bottom: 0.6em;
     }
     .card-front p, .card-front ul,
     .card-back p, .card-back ul {
-      font-size: 1em;
-      line-height: 1.6em;
+      font-size: 0.95em;
+      line-height: 1.5em;
     }
     .icon {
-      font-size: 1.3em;
+      font-size: 1.2em;
       margin-right: 0.4em;
     }
     body.dark {
@@ -108,7 +111,7 @@
       position: absolute;
       bottom: 10px;
       right: 20px;
-      font-size: 1.2em;
+      font-size: 1em;
       color: #2c3e50;
       font-weight: bold;
     }
